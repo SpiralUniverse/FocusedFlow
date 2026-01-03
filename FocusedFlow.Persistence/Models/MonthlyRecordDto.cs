@@ -1,5 +1,3 @@
-using FocusedFlow.Core.Monthly;
-
 namespace FocusedFlow.Persistence.Models;
 
 public sealed class MonthlyRecordDto
@@ -9,10 +7,15 @@ public sealed class MonthlyRecordDto
 
     public List<DateOnly> Weeks { get; set; } = [];
 
-    public MonthlyDirection? Direction { get; set; }
+    public string? DirectionTheme { get; set; }
+    public string? DirectionPrimaryFocus { get; set; }
 
-    public MonthlyHabits? Habits { get; set; }
+    public string? HabitToProtect { get; set; }
+    public string? HabitToWeaken { get; set; }
 
-    public MonthlyReflection? Reflection { get; set; }
-    public List<MonthlyEvent>? Events { get; set; }
+    public string? ReflectionWhatWorked { get; set; }
+    public string? ReflectionWhatDidNotWork { get; set; }
+    public string? ReflectionKeyInsights { get; set; }
+
+    public List<MonthlyEventDto>? Events { get; set; }
 }

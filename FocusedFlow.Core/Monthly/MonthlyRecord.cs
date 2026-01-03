@@ -30,6 +30,15 @@ public sealed class MonthlyRecord(MonthDefinition definition)
     public void AddEvent(string name, DateOnly start, DateOnly end) =>
         _events.Add(new MonthlyEvent(name, start, end));
 
+    public void AddEvent(MonthlyEvent e) =>
+        _events.Add(new MonthlyEvent(e.Name, e.StartDate, e.EndDate));
+
+    public void AddEvents(MonthlyEvent[] events)
+    {
+        foreach (MonthlyEvent e in events)
+            _events.Add(e);
+    }
+
     public void SetDirection(string? theme, string? primaryFocus) =>
         Direction = new MonthlyDirection(theme, primaryFocus);
 
