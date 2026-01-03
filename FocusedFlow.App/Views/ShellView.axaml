@@ -1,0 +1,36 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:views="clr-namespace:FocusedFlow.App.Views"
+    xmlns:vm="clr-namespace:FocusedFlow.App.ViewModels"
+    x:Class="FocusedFlow.App.Views.ShellView"
+    x:DataType="vm:ShellViewModel">
+
+    <UserControl.DataTemplates>
+        <DataTemplate DataType="{x:Type vm:DailyViewModel}">
+            <views:DailyView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:WeeklyViewModel}">
+            <views:WeeklyView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MonthlyViewModel}">
+            <views:MonthlyView/>
+        </DataTemplate>
+    </UserControl.DataTemplates>
+
+    <Grid RowDefinitions="Auto, *">
+        <StackPanel Orientation="Horizontal"
+        HorizontalAlignment="Center"
+        Spacing="12"
+        Margin="0,12">
+        <Button Content="Daily"
+        Command="{Binding ShowDailyCommand}"/>
+        <Button Content="Weekly"
+        Command="{Binding ShowWeeklyCommand}"/>
+        <Button Content="Monthly"
+        Command="{Binding ShowMonthlyCommand}"/>
+    </StackPanel>
+    <ContentControl Grid.Row="1"
+    Content="{Binding CurrentViewModel}"/>
+    </Grid>
+</UserControl>

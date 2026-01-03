@@ -1,0 +1,48 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:FocusedFlow.App.ViewModels"
+    x:Class="FocusedFlow.App.Views.DailyView"
+    x:DataType="vm:DailyViewModel">
+
+    <ScrollViewer>
+        <StackPanel
+            Margin="16"
+            Spacing="12">
+
+            <TextBlock
+                Text="Daily"
+                FontSize="18"
+                FontWeight="Bold"/>
+
+            <!-- Baseline -->
+            <TextBlock Text="Baseline" FontWeight="SemiBold"/>
+
+            <TextBlock Text="Sleep (hours)"/>
+            <NumericUpDown
+                Value="{Binding SleepHours, Mode=TwoWay}"
+                Minimum="0"
+                Maximum="12"/>
+
+            <TextBlock Text="Water (liters)"/>
+            <NumericUpDown
+                Value="{Binding WaterLiters, Mode=TwoWay}"
+                Minimum="0"
+                Maximum="6"
+                Increment="0.25"/>
+
+            <TextBlock Text="Meals"/>
+            <NumericUpDown
+                Value="{Binding MealsCount, Mode=TwoWay}"
+                Minimum="0"
+                Maximum="6"/>
+
+            <!-- Anchor -->
+            <TextBlock Text="Anchor" FontWeight="SemiBold" Margin="0,12,0,0"/>
+
+            <TextBlock Text="{Binding AnchorName}"/>
+            <TextBlock Text="{Binding AnchorStatus}"/>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
