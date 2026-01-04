@@ -26,21 +26,18 @@ public sealed class MonthlyJsonRepositoryTests
             keyInsights: "Sleep affects focus more than expected"
         );
 
-        record.AddEvents(
-            new[]
-            {
-                new MonthlyEvent(
-                    "Midterm Exams",
-                    new DateOnly(year, month, 10),
-                    new DateOnly(year, month, 15)
-                ),
-                new MonthlyEvent(
-                    "Basketball Tournament",
-                    new DateOnly(year, month, 20),
-                    new DateOnly(year, month, 20)
-                ),
-            }
-        );
+        record.AddEvents([
+            new MonthlyEvent(
+                "Midterm Exams",
+                new DateOnly(year, month, 10),
+                new DateOnly(year, month, 15)
+            ),
+            new MonthlyEvent(
+                "Basketball Tournament",
+                new DateOnly(year, month, 20),
+                new DateOnly(year, month, 20)
+            ),
+        ]);
 
         return record;
     }
